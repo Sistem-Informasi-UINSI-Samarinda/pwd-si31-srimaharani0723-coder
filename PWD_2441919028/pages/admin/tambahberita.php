@@ -72,12 +72,12 @@ include '../../config/koneksi.php';
         $tmp = $_FILES['foto_berita']['tmp_name'];
         $folder = "../../uploads/";
         
-        $foto_berita = uniqid() . "_" . $foto; //agar nama unik dan tidak redundan
+        $foto_baru = uniqid() . "_" . $foto; //agar nama unik dan tidak redundan
 
         if($_FILES['foto_berita']['error'] !== UPLOAD_ERR_OK){
             echo "Error Upload File ".$_FILES['foto_berita']['error'];
         }
-        move_uploaded_file($temp, $folder. $foto_berita);
+        move_uploaded_file($temp, $folder. $foto_baru);
       
         // query simpan ke database
         $query ="INSERT INTO berita (id_kategori, judul_berita, isi_berita, foto_berita, tanggal_berita)
